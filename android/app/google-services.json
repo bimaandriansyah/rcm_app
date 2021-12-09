@@ -1,0 +1,41 @@
+{
+  "project_info": {
+    "project_number": "992464318063",
+    "firebase_url": "https://rail-inspection-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "rail-inspection",
+    "storage_bucket": "rail-inspection.appspot.com"
+  },
+  "client": [{
+    "client_info": {
+      "mobilesdk_app_id": "1:992464318063:android:c7364f546d0842585d279a",
+      "android_client_info": {
+        "package_name": "com.ta.rcm"
+      }
+    },
+    "oauth_client": [{
+        "client_id": "992464318063-69oj3psegai0cn2r4kf77ji89a2qqh4q.apps.googleusercontent.com",
+        "client_type": 1,
+        "android_info": {
+          "package_name": "com.ta.rcm",
+          "certificate_hash": "e07fe9783844c2cb7c3f9b106a50cd27ee605c7b"
+        }
+      },
+      {
+        "client_id": "992464318063-006j08807rrncjj596rdvuv5ljkr20fk.apps.googleusercontent.com",
+        "client_type": 3
+      }
+    ],
+    "api_key": [{
+      "current_key": "AIzaSyChxBDjYJgjZwtdhrqTH1EkauBaz-9ZGyU"
+    }],
+    "services": {
+      "appinvite_service": {
+        "other_platform_oauth_client": [{
+          "client_id": "992464318063-006j08807rrncjj596rdvuv5ljkr20fk.apps.googleusercontent.com",
+          "client_type": 3
+        }]
+      }
+    }
+  }],
+  "configuration_version": "1"
+}
