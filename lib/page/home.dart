@@ -74,6 +74,7 @@ class GPS extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final HomeController homeC = Get.find();
     return Padding(
       padding: EdgeInsets.all(25),
       child: Column(
@@ -109,11 +110,11 @@ class GPS extends StatelessWidget {
                 SizedBox(
                   height: 10,
                 ),
-                Text('46.71',
+                Obx(() => Text(homeC.longitude.value,
                     style: GoogleFonts.poppins(
                       fontSize: 26,
                       fontWeight: FontWeight.w800,
-                    )),
+                    ))),
               ],
             ),
           ),
@@ -134,35 +135,43 @@ class GPS extends StatelessWidget {
                 SizedBox(
                   height: 10,
                 ),
-                Text('46.71',
+                Obx(() => Text(homeC.latitude.value,
                     style: GoogleFonts.poppins(
                       fontSize: 26,
                       fontWeight: FontWeight.w800,
-                    )),
+                    ))),
               ],
             ),
           ),
           SizedBox(height: 10),
-          Container(
-            width: Get.width,
-            padding: EdgeInsets.all(20),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10),
-              color: kBackgroundColor,
-            ),
-            child: Center(
-              child: Text(
-                'Lihat Map',
-                style: GoogleFonts.poppins(
-                  fontSize: 18,
-                  fontWeight: FontWeight.w800,
+          GestureDetector(
+            onTap: () {
+              homeC.navigateTo(double.parse(homeC.latitude.string),
+                  double.parse(homeC.longitude.string));
+            },
+            child: Container(
+              width: Get.width,
+              padding: EdgeInsets.all(20),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10),
+                color: kBackgroundColor,
+              ),
+              child: Center(
+                child: Text(
+                  'Lihat Map',
+                  style: GoogleFonts.poppins(
+                    fontSize: 18,
+                    fontWeight: FontWeight.w800,
+                  ),
                 ),
               ),
             ),
           ),
           Expanded(child: SizedBox()),
           ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                homeC.onChangeClick();
+              },
               style: ElevatedButton.styleFrom(
                   fixedSize: Size(Get.width, 60),
                   elevation: 0,
@@ -170,11 +179,11 @@ class GPS extends StatelessWidget {
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10),
                   )),
-              child: Text("START",
+              child: Obx(() => Text(homeC.onClickStart.value ? "STOP" : "START",
                   style: GoogleFonts.poppins(
                     color: Colors.white,
                     fontWeight: FontWeight.bold,
-                  ))),
+                  )))),
         ],
       ),
     );
@@ -188,6 +197,7 @@ class Giroskop extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final HomeController homeC = Get.find();
     return Padding(
       padding: EdgeInsets.all(25),
       child: Column(
@@ -223,11 +233,11 @@ class Giroskop extends StatelessWidget {
                 SizedBox(
                   height: 10,
                 ),
-                Text('46.71',
+                Obx(() => Text(homeC.pitch.value,
                     style: GoogleFonts.poppins(
                       fontSize: 26,
                       fontWeight: FontWeight.w800,
-                    )),
+                    ))),
               ],
             ),
           ),
@@ -248,17 +258,19 @@ class Giroskop extends StatelessWidget {
                 SizedBox(
                   height: 10,
                 ),
-                Text('46.71',
+                Obx(() => Text(homeC.roll.value,
                     style: GoogleFonts.poppins(
                       fontSize: 26,
                       fontWeight: FontWeight.w800,
-                    )),
+                    ))),
               ],
             ),
           ),
           Expanded(child: SizedBox()),
           ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                homeC.onChangeClick();
+              },
               style: ElevatedButton.styleFrom(
                   fixedSize: Size(Get.width, 60),
                   elevation: 0,
@@ -266,11 +278,11 @@ class Giroskop extends StatelessWidget {
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10),
                   )),
-              child: Text("START",
+              child: Obx(() => Text(homeC.onClickStart.value ? "STOP" : "START",
                   style: GoogleFonts.poppins(
                     color: Colors.white,
                     fontWeight: FontWeight.bold,
-                  ))),
+                  )))),
         ],
       ),
     );
@@ -284,6 +296,8 @@ class Ultrasonik extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final HomeController homeC = Get.find();
+
     return Padding(
       padding: EdgeInsets.all(25),
       child: Column(
@@ -319,11 +333,11 @@ class Ultrasonik extends StatelessWidget {
                 SizedBox(
                   height: 10,
                 ),
-                Text('46.71',
+                Obx(() => Text(homeC.belakang.value,
                     style: GoogleFonts.poppins(
                       fontSize: 26,
                       fontWeight: FontWeight.w800,
-                    )),
+                    ))),
               ],
             ),
           ),
@@ -344,17 +358,19 @@ class Ultrasonik extends StatelessWidget {
                 SizedBox(
                   height: 10,
                 ),
-                Text('46.71',
+                Obx(() => Text(homeC.depan.value,
                     style: GoogleFonts.poppins(
                       fontSize: 26,
                       fontWeight: FontWeight.w800,
-                    )),
+                    ))),
               ],
             ),
           ),
           Expanded(child: SizedBox()),
           ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                homeC.onChangeClick();
+              },
               style: ElevatedButton.styleFrom(
                   fixedSize: Size(Get.width, 60),
                   elevation: 0,
@@ -362,11 +378,11 @@ class Ultrasonik extends StatelessWidget {
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10),
                   )),
-              child: Text("START",
+              child: Obx(() => Text(homeC.onClickStart.value ? "STOP" : "START",
                   style: GoogleFonts.poppins(
                     color: Colors.white,
                     fontWeight: FontWeight.bold,
-                  ))),
+                  )))),
         ],
       ),
     );
